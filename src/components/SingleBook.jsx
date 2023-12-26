@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Card, Button, ListGroup, Form } from "react-bootstrap";
+import { Col, Card, Button, Form } from "react-bootstrap";
 
 class SingleBook extends Component {
   state = {
@@ -47,22 +47,11 @@ class SingleBook extends Component {
               <Card.Title style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                 {book.title}
               </Card.Title>
-              <Card.Text>
-                <p>- {book.price}</p>
-              </Card.Text>
+              <Card.Text>- {book.price}</Card.Text>
               <Button variant="primary" onClick={() => this.whenSelected()}>
                 Select
               </Button>
               {/* QUESTO DOVREBBE ESSERE COMMENTAREA */}
-              <ListGroup variant="flush" style={{ marginTop: "1rem", overflowY: "scroll" }}>
-                {/* Elementi che sistemo in COMMENTLIST */}
-                <ListGroup.Item>Commento di Pippo</ListGroup.Item>
-                <ListGroup.Item>Commento di Tizio</ListGroup.Item>
-                <ListGroup.Item>Commento di Caio</ListGroup.Item>
-                <ListGroup.Item>Commento di Sempronio</ListGroup.Item>
-              </ListGroup>
-              {/* QUI ADD COMMENT CON IL FORM */}
-              {/* FINE COMMENT AREA */}
             </Card.Body>
           </Card>
         </Col>
@@ -94,9 +83,7 @@ class SingleBook extends Component {
               <Card.Title style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                 {book.title}
               </Card.Title>
-              <Card.Text>
-                <p>- {book.price}</p>
-              </Card.Text>
+              <Card.Text>- {book.price}</Card.Text>
               <Button variant="primary" onClick={() => this.setState({ selected: !this.state.selected })}>
                 Select
               </Button>
