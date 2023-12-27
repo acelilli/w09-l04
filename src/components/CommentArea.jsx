@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import ListGroup, { ListGroupItem } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 // import CommentsList from "./CommentsList";
 // import AddComment from "./AddComment";
+import CommentList from "./CommentList";
 
 class CommentArea extends Component {
   state = {
@@ -23,25 +24,26 @@ class CommentArea extends Component {
         const data = await response.json();
         this.setState({ comments: data, loading: false });
       } else {
-        throw new Error("Error loading comments");
+        console.log("Error loading comments");
       }
     } catch (error) {
-      console.log(Error, "comments fetch error");
+      console.log("comments fetch error");
     }
 
     // onDelete da definire
   };
   render() {
+    const { loading, error, comments } = this.state;
+
     return (
       <>
+        {loading && <p>loading...</p>}
+        {error && <p>error fetching data</p>}
+        {/*  */}
         {this.state.comments.length > 0 ? (
           <ListGroup variant="flush" style={{ marginTop: "1rem", overflowY: "scroll" }}>
             {/*QUESTO DEVE DIVENTARE COMMENT LIST*/}
-            {this.state.comments.map((comment) => (
-              <ListGroup.Item key={comment._id}>
-                <CommentItself comment={comment} />
-              </ListGroup.Item>
-            ))}
+            <CommentList comments={comments} />
             {/*FINE COMMENT LIST*/}
           </ListGroup>
         ) : (
@@ -56,6 +58,9 @@ class CommentArea extends Component {
     );
   }
 }
+
+export default CommentArea;
+
 // Che contiene
 // Comment List
 // AddComment

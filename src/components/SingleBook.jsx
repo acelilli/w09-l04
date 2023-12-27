@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Col, Card, Button, Form } from "react-bootstrap";
+import { Col, Card, Button } from "react-bootstrap";
+import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
@@ -51,7 +52,7 @@ class SingleBook extends Component {
               <Button variant="primary" onClick={() => this.whenSelected()}>
                 Select
               </Button>
-              {/* QUESTO DOVREBBE ESSERE COMMENTAREA */}
+              <CommentArea bookId={book.asin} />
             </Card.Body>
           </Card>
         </Col>
