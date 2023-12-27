@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <MyNav brand="EpiBooks" claim="Week 09 Lesson 03" />
+      <MyNav brand="EpiBooks" claim="Week 09 Lesson 04" />
       <Welcome />
       {/* <AllTheBooks /> */}
       {/* AllTheBooks è diventato la struttura container/row che contiene a sua volta BookList che contiene a sua volta SingleBook. */}

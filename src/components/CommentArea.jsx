@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ListGroup } from "react-bootstrap";
 import CommentList from "./CommentList";
+import AddComment from "./AddComment";
 
 class CommentArea extends Component {
   /* Inizializzazione  STATO INIZIALE
@@ -56,8 +57,9 @@ e error è null */
     return (
       <>
         {error && <p>Error fetching data: {error.message}</p>}
-        {/* Se loading è true, viene visualizzato un messaggio di caricamento. Se error è presente, viene visualizzato un messaggio di errore. */}
-        {/* Se ci sono commenti, viene mostrato un elenco (ListGroup) di commenti utilizzando il componente CommentList. Altrimenti, viene mostrato un messaggio che indica l'assenza di recensioni. */}
+        {/* SE loading è true, viene visualizzato un messaggio di caricamento. 
+        SE error è presente, viene visualizzato un messaggio di errore. */}
+
         {loading ? (
           <p>Loading...</p>
         ) : comments.length > 0 ? (
@@ -65,10 +67,12 @@ e error è null */
             <ListGroup variant="flush" style={{}}>
               <CommentList comments={comments} />
             </ListGroup>
+            <AddComment id={this.props.id} addComment={this.addComment} />
           </div>
         ) : (
           <p>No comments available</p>
         )}
+        {/* SE ci sono commenti, viene mostrato un elenco (ListGroup) di commenti utilizzando il componente CommentList. ALTRIMENTI, viene mostrato un messaggio che indica l'assenza di recensioni. */}
 
         {/* QUI ADD COMMENT CON IL FORM */}
         {/* Includere il codice per aggiungere commenti qui */}
